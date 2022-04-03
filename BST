@@ -1,0 +1,21 @@
+from typing import List
+
+def binary_search(arr: List[int], target: int) -> int:
+    # WRITE YOUR BRILLIANT CODE HERE
+    l, r = 0, len(arr)-1
+    while l<=r:
+        md = (l+r)//2
+        if arr[md]==target:
+            return md
+        if arr[md]>target:
+            r = md - 1
+        if arr[md] < target:
+            l = md + 1
+    return -1     
+            
+
+if __name__ == '__main__':
+    arr = [int(x) for x in input().split()]
+    target = int(input())
+    res = binary_search(arr, target)
+    print(res)
